@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pertemuan_10/model/pokemon.dart';
+import 'package:pertemuan_10/shared/widget/pokemon_card_widget.dart';
 
 class PokemonDetailPage extends StatefulWidget {
   final Pokemon pokemon;
@@ -24,9 +25,15 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  backButton(),
                   headerText(pokemon),
+                  const SizedBox(width: 48),
                 ],
               ),
+
+              const SizedBox(height: 20),
+
+              pokemonCard(pokemon),
             ],
           ),
         ),
@@ -61,7 +68,13 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
 
   Widget pokemonCard(Pokemon pokemon) {
     return SizedBox(
-      
+      height: 300,
+      width: double.infinity,
+      child: PokemonCardWidget(
+        imageUrl: pokemon.imageUrl, 
+        type: pokemon.type,
+        showType: false,
+      ),
     );
   }
 }
