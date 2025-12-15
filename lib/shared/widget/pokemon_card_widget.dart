@@ -12,37 +12,55 @@ class PokemonCardWidget extends StatelessWidget {
     required this.name,
     required this.type,
     required this.onTap,
-  }) : super(key : key);
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: type == 'Fire' ? Colors.red[100] :
-                 type == 'Water' ? Colors.blue[100] :
-                 type == 'Grass' ? Colors.green[100] :
-                 Colors.grey[200],
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Image.network(imageUrl,
-            fit: BoxFit.fill,
-            width: double.infinity,
-            ),
-            Text(
-              name,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold
+    return Material(
+      color: Colors.transparent,
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: _getTypeColor(type),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            children: [
+              Expanded(
+                child: Image.network(
+                  imageUrl,
+                  fit: BoxFit.contain,
+                ),
               ),
-            ),
-            Text(type),
-          ],
+              const SizedBox(height: 8),
+              Text(
+                name,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(type),
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Color _getTypeColor(String type) {
+    switch (type) {
+      case 'Grass':
+        return const Color.fromRGBO(196, 228, 213, 1);
+      case 'Fire':
+        return const Color.fromRGBO(239, 221, 186, 1);
+      case 'Water':
+        return const Color.fromRGBO(190, 219, 221, 1);
+      default:
+        return Colors.grey.shade300;
+    }
   }
 }

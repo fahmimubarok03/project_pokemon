@@ -84,9 +84,9 @@ class _HomePageState extends State<HomePage> {
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 3 / 4,
-          crossAxisSpacing: 10,
-          mainAxisSpacing: 8,
+          childAspectRatio: 3/4,
+          crossAxisSpacing: 12,
+          mainAxisSpacing: 12,
         ),
         itemCount: dummyPokemonList.length,
         itemBuilder: (context, index) {
