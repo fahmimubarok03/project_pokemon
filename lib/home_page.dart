@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:pertemuan_10/model/dummy_data.dart';
+import 'package:pertemuan_10/pokemon_detail_page.dart';
 import 'package:pertemuan_10/shared/widget/pokemon_card_widget.dart';
 
 class HomePage extends StatefulWidget {
@@ -84,7 +83,7 @@ class _HomePageState extends State<HomePage> {
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 3/4,
+          childAspectRatio: 3 / 4,
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
         ),
@@ -92,8 +91,15 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (context, index) {
           return PokemonCardWidget(
             onTap: () {
-              log(dummyPokemonList[index].name);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      PokemonDetailPage(pokemon: dummyPokemonList[index]),
+                ),
+              );
             },
+
             imageUrl: dummyPokemonList[index].imageUrl,
             name: dummyPokemonList[index].name,
             type: dummyPokemonList[index].type,
@@ -103,4 +109,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
