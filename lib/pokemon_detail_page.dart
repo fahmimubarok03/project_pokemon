@@ -58,4 +58,10 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
       icon: Icon(Icons.arrow_back, size: 30),
     );
   }
+
+  Widget pokemonCard(Pokemon pokemon) {
+    return SizedBox(
+      
+    );
+  }
 }
