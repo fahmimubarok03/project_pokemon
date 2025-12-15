@@ -68,7 +68,7 @@ class _PokemonDetailPageState extends State<PokemonDetailPage> {
 
   Widget pokemonCard(Pokemon pokemon) {
     return SizedBox(
-      height: 300,
+      height: 350,
       width: double.infinity,
       child: PokemonCardWidget(
         imageUrl: pokemon.imageUrl, 
