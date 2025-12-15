@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pertemuan_10/model/pokemon.dart';
 
 class PokemonDetailPage extends StatefulWidget {
-  const PokemonDetailPage({super.key});
+  final Pokemon pokemon;
+  
+  const PokemonDetailPage({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   State<PokemonDetailPage> createState() => _PokemonDetailPageState();
